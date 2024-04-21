@@ -24,4 +24,9 @@
 | 8*6双面焊接洞洞板 | 1 | 3.33 | [洞洞板](https://detail.tmall.com/item.htm?_u=l20bv0ctvu6192&id=17952641393&skuId=5089150435057&spm=a1z09.2.0.0.67002e8dC8TkfS) |
 | 总计 | 110 | 58.42 | 
 ## Help教程
-待续
+1. homeassistant添加mqtt服务器
+2. homeassistant修改mqtt配置
+3. 焊接模块
+4. 烧录micropython固件
+5. 上传micropython代码
+6. homeassistant测试
