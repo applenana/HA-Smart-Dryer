@@ -1,0 +1,90 @@
+
+# Loads default set of integrations. Do not remove.
+default_config:
+
+# Load frontend themes from the themes folder
+frontend:
+  themes: !include_dir_merge_named themes
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+mqtt:
+  light:
+    - name: "照明灯"
+      unique_id: "smartdrierlight"
+      state_topic: "smartdrier/ls"
+      command_topic: "smartdrier/lc"
+      device : {
+        hw_version : "1.0",
+        identifiers : "applenanadrier",
+        manufacturer : "香蕉泥制造",
+        name : "香蕉智能烘干箱"
+      }
+  
+  climate:
+    - name: "烘干箱"
+      unique_id: "smartdrier"
+      mode_command_topic: "smartdrier/mc"
+      mode_state_topic: "smartdrier/ms"
+      current_humidity_topic: "smartdrier/h"
+      current_temperature_topic: "smartdrier/t"
+      fan_mode_command_topic: "smartdrier/fc"
+      fan_mode_state_topic: "smartdrier/fs"
+      modes: ['heat','auto','off']
+      temperature_command_topic: "smartdrier/tc"
+      temperature_state_topic: "smartdrier/ts"
+      max_temp: 100
+      min_temp: 30
+      device : {
+        hw_version : "1.0",
+        identifiers : "applenanadrier",
+        manufacturer : "香蕉泥制造",
+        name : "香蕉智能烘干箱"
+      }
+  
+  sensor:
+    - name: "温度"
+      unique_id: "smartdrierTem"
+      unit_of_measurement: "℃"
+      state_topic: "smartdrier/t"
+      device : {
+        hw_version : "1.0",
+        identifiers : "applenanadrier",
+        manufacturer : "香蕉泥制造",
+        name : "香蕉智能烘干箱"
+      }
+
+    - name: "湿度"
+      unique_id: "smartdrierHum"
+      unit_of_measurement: "%"
+      state_topic: "smartdrier/h"
+      device : {
+        hw_version : "1.0",
+        identifiers : "applenanadrier",
+        manufacturer : "香蕉泥制造",
+        name : "香蕉智能烘干箱"
+      }
+
+  fan:
+    - name: "干燥箱风扇"
+      unique_id: "smartdrierfan"
+      device : {
+        hw_version : "1.0",
+        identifiers : "applenanadrier",
+        manufacturer : "香蕉泥制造",
+        name : "香蕉智能烘干箱"
+      }
+      command_topic: "smartdrier/fanc"
+      state_topic: "smartdrier/fans"
+      percentage_command_topic: "smartdrier/fanpc"
+      percentage_state_topic: "smartdrier/fanps"
+      speed_range_min: 1
+      speed_range_max: 100
+
+  
